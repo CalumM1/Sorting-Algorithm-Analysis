@@ -8,8 +8,10 @@ public class Main
     public static void main(String[] args) throws FileNotFoundException
     {
         Reader reader = new Reader();
-        int[] a = reader.readArray("int50.txt");
-        System.out.println(a.getClass());
+        int[] a = reader.readArray("input/int50.txt");
+        Sort sort = new Sort();
 
+        System.out.println(Arrays.toString(a));
+        System.out.println(Arrays.toString(sort.selectionSort(a)));
     }
 }

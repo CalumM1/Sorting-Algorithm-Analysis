@@ -34,10 +34,21 @@ public class TestSortingAlgorithms
         Assert.assertArrayEquals(smallSorted, sort.insertionSort(smallInput));
     }
 
-
     @Test
     public void testInsertionSortBig()
     {
         Assert.assertArrayEquals(bigSorted, sort.insertionSort(bigInput));
+    }
+
+    @Test
+    public void testSelectionSortSmall()
+    {
+        Assert.assertArrayEquals(smallSorted, sort.selectionSort(smallInput));
+    }
+
+    @Test
+    public void testSelectionSortBig()
+    {
+        Assert.assertArrayEquals(bigSorted, sort.selectionSort(bigInput));
     }
 }
