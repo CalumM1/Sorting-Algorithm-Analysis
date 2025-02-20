@@ -110,6 +110,18 @@ public class Timer
     }
 
 
+    public long timeQuickSortDutchFlag(String input) throws FileNotFoundException
+    {
+        int[] array = reader.readArray("input/" + input + ".txt");
+
+        long startTime = System.nanoTime();
+        sorter.quickSortDutchFlag(array, 0, array.length-1);
+        long endTime = System.nanoTime();
+
+        return (endTime - startTime);
+    }
+
+
     public long averageInsertionSortTime(String input) throws FileNotFoundException
     {
         long total = 0;
@@ -198,25 +210,36 @@ public class Timer
     }
 
 
+    public long averageQuickSortDutchFlagTime(String input) throws FileNotFoundException
+    {
+        long total = 0;
+        for (int i = 0; i < 10; i++)
+        {
+            total += timeQuickSortDutchFlag(input);
+        }
+        return total/10;
+    }
+
+
     public static void main(String[] args) throws FileNotFoundException
     {
         Timer timer = new Timer();
         Reader reader = new Reader();
 
-        String input = "int20k";
+        String input = "int500k";
         int[] a = reader.readArray("input/" + input + ".txt");
 
         System.out.println("Testing on input size " + a.length);
         System.out.println("------------------------");
 
-        long averageInsertionTime = timer.averageInsertionSortTime(input);
-        System.out.println("The average insertion sort time is " + averageInsertionTime + "ns (" + (double) averageInsertionTime/1_000_000_000 + "s)");
-
-        long averageSelectionTime = timer.averageSelectionSortTime(input);
-        System.out.println("The average selection sort time is " + averageSelectionTime + "ns (" + (double) averageSelectionTime/1_000_000_000 + "s)");
-
-        long averageShellTime = timer.averageShellSortTime(input);
-        System.out.println("The average shell sort time is " + averageShellTime + "ns (" + (double) averageShellTime/1_000_000_000 + "s)");
+//        long averageInsertionTime = timer.averageInsertionSortTime(input);
+//        System.out.println("The average insertion sort time is " + averageInsertionTime + "ns (" + (double) averageInsertionTime/1_000_000_000 + "s)");
+//
+//        long averageSelectionTime = timer.averageSelectionSortTime(input);
+//        System.out.println("The average selection sort time is " + averageSelectionTime + "ns (" + (double) averageSelectionTime/1_000_000_000 + "s)");
+//
+//        long averageShellTime = timer.averageShellSortTime(input);
+//        System.out.println("The average shell sort time is " + averageShellTime + "ns (" + (double) averageShellTime/1_000_000_000 + "s)");
 
         long averageMergeTime = timer.averageMergeSortTime(input);
         System.out.println("The average Merge sort time is " + averageMergeTime + "ns (" + (double) averageMergeTime/1_000_000_000 + "s)");
@@ -232,6 +255,9 @@ public class Timer
 
         long averageQuickMedian3Time = timer.averageQuickSortMedian3Time(input);
         System.out.println("The average quick sort median 3 time is " + averageQuickMedian3Time + "ns (" + (double) averageQuickMedian3Time/1_000_000_000 + "s)");
+
+        long averageQuickDutchFlagTime = timer.averageQuickSortDutchFlagTime(input);
+        System.out.println("The average quick sort Dutch flag time is " + averageQuickDutchFlagTime + "ns (" + (double) averageQuickDutchFlagTime/1_000_000_000 + "s)");
 
         System.out.println("------------------------");
     }
