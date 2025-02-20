@@ -129,6 +129,18 @@ public class Sorter
     }
 
 
+    public int[] quickSortDutchFlag(int[] array, int low, int high)
+    {
+        if (low < high)
+        {
+            int[] pivots = partitionDutchFlag(array, low, high);
+            quickSort(array, low, pivots[0] - 1);
+            quickSort(array, pivots[1] + 1, high);
+        }
+        return array;
+    }
+
+
     private static int medianOfThree(int[] array, int p, int r)
     {
         int mid = p + (r - p) / 2;
@@ -151,7 +163,8 @@ public class Sorter
     }
 
 
-    private static int partitionMedianOfThree(int[] array, int p, int r) {
+    private static int partitionMedianOfThree(int[] array, int p, int r)
+    {
         int medianIndex = medianOfThree(array, p, r);
         swap(array, medianIndex, r);
 
@@ -162,6 +175,29 @@ public class Sorter
     private static int partitionQuick(int[] array, int p, int r)
     {
         return partition(array, p, r);
+    }
+
+
+    private static int[] partitionDutchFlag(int[] array, int low, int high)
+    {
+        int pivot = array[high];
+        int i = low - 1;
+        int j = low;
+        int k = high;
+
+        while (j <= k) {
+            if (array[j] < pivot) {
+                i++;
+                swap(array, i, j);
+                j++;
+            } else if (array[j] > pivot) {
+                swap(array, j, k);
+                k--;
+            } else {
+                j++;
+            }
+        }
+        return new int[] { i + 1, k };
     }
 
 
@@ -228,7 +264,8 @@ public class Sorter
     }
 
 
-    private static int findMinIndex(int[] array, int startingIndex) {
+    private static int findMinIndex(int[] array, int startingIndex)
+    {
         int min = array[startingIndex];
         int index = startingIndex;
         for (int j = startingIndex + 1; j < array.length; j++)
