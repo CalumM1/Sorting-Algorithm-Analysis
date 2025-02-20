@@ -12,9 +12,10 @@ public class TestSortingAlgorithms
 {
     Sort sort = new Sort();
 
+    String inputString = "input/int100.txt";
     private Reader reader = new Reader();
-    private int[] input = reader.readArray("int100.txt");
-    private int[] sorted = reader.readArray("int100.txt");
+    private int[] input = reader.readArray(inputString);
+    private int[] sorted = reader.readArray(inputString);
 
     public TestSortingAlgorithms() throws FileNotFoundException
     {
