@@ -13,7 +13,7 @@ public class Sorter
             while (i >= 0 && array[i] > key)
             {
                 array[i + 1] = array[i];
-                i = i - 1;
+                i--;
             }
             array[i + 1] = key;
         }
@@ -70,7 +70,25 @@ public class Sorter
     }
 
 
-    static void merge(int[] array, int p, int q, int r)
+    public int[] mergeInsertionSort(int[] array, int p, int r)
+    {
+        final int INSERTION_SORT_THRESHOLD = 10;
+        if (p < r) {
+            // Use insertion sort for small subarrays
+            if (r - p + 1 <= INSERTION_SORT_THRESHOLD) {
+                insertionSortInPlace(array, p, r);
+            } else {
+                int q = (p + r) / 2;
+                mergeSort(array, p, q);
+                mergeSort(array, q + 1, r);
+                merge(array, p, q, r);
+            }
+        }
+        return array;
+    }
+
+
+    private static void merge(int[] array, int p, int q, int r)
     {
         int n1 = q - p + 1;
         int n2 = r - q;
@@ -101,6 +119,18 @@ public class Sorter
             else{
                 array[k] = R[j];
                 j++;
+            }
+        }
+    }
+
+
+    private void insertionSortInPlace(int[] a, int p, int r)
+    {
+        for (int i = p + 1; i < r; i++)
+        {
+            for (int j = i; j > p && a[j] < a[j-1]; j--)
+            {
+                swap(a, j, j-1);
             }
         }
     }

@@ -82,4 +82,18 @@ public class TestSortingAlgorithms
         int[] bigInput = reader.readArray(bigInputString);
         Assert.assertArrayEquals(bigSorted, sorter.mergeSort(bigInput, 0 , bigInput.length - 1));
     }
+
+    @Test
+    public void testMergeInsertSortSmall() throws FileNotFoundException
+    {
+        int[] smallInput = reader.readArray(smallInputString);
+        Assert.assertArrayEquals(smallSorted, sorter.mergeInsertionSort(smallInput, 0, smallInput.length - 1));
+    }
+
+    @Test
+    public void testMergeInsertSortBig() throws FileNotFoundException
+    {
+        int[] bigInput = reader.readArray(bigInputString);
+        Assert.assertArrayEquals(bigSorted, sorter.mergeInsertionSort(bigInput, 0 , bigInput.length - 1));
+    }
 }
