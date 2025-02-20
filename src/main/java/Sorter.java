@@ -43,6 +43,7 @@ public class Sorter
         {
             h = (h * 3) + 1;
         }
+
         while (h >= 1)
         {
             for (long i = h; i < array.length; i++)
@@ -58,41 +59,41 @@ public class Sorter
     }
 
 
-    public int[] mergeSort(int[] array, int p, int r)
+    public int[] mergeSort(int[] array, int low, int high)
     {
-        if (p < r){
-            int q = (p+r)/2;
-            mergeSort(array, p, q);
-            mergeSort(array , q+1, r);
-            merge(array, p, q, r);
+        if (low < high){
+            int q = (low+high)/2;
+            mergeSort(array, low, q);
+            mergeSort(array , q+1, high);
+            merge(array, low, q, high);
         }
         return array;
     }
 
 
-    public int[] mergeInsertionSort(int[] array, int p, int r)
+    public int[] mergeInsertionSort(int[] array, int low, int high)
     {
         final int INSERTION_SORT_THRESHOLD = 10;
-        if (p < r)
+        if (low < high)
         {
             // Use insertion sort for small subarrays
-            if (r - p + 1 <= INSERTION_SORT_THRESHOLD)
+            if (high - low + 1 <= INSERTION_SORT_THRESHOLD)
             {
-                insertionSortInPlace(array, p, r);
+                insertionSortInPlace(array, low, high);
             } else {
-                int q = (p + r) / 2;
-                mergeSort(array, p, q);
-                mergeSort(array, q + 1, r);
-                merge(array, p, q, r);
+                int q = (low + high) / 2;
+                mergeSort(array, low, q);
+                mergeSort(array, q + 1, high);
+                merge(array, low, q, high);
             }
         }
         return array;
     }
 
 
-    public int[] bottomUpMergeSort(int[] array, int p, int r)
+    public int[] bottomUpMergeSort(int[] array, int low, int high)
     {
-        int n = r - p + 1;
+        int n = high - low + 1;
         for (int sz = 1; sz < n; sz = sz+sz)
         {
             for (int q = 0; q < n - sz; q += sz + sz)
@@ -108,7 +109,7 @@ public class Sorter
     {
         if (low < high)
         {
-            int pivotIndex = partition(array, low, high);
+            int pivotIndex = partitionQuick(array, low, high);
             quickSort(array, low, pivotIndex - 1);
             quickSort(array, pivotIndex + 1, high);
         }
@@ -116,16 +117,65 @@ public class Sorter
     }
 
 
-    private static int partition(int[] array, int p, int r){
-        int x = array[r];
+    public int[] quickSortMedian3(int[] array, int low, int high)
+    {
+        if (low < high)
+        {
+            int pivotIndex = partitionMedianOfThree(array, low, high);
+            quickSort(array, low, pivotIndex - 1);
+            quickSort(array, pivotIndex + 1, high);
+        }
+        return array;
+    }
+
+
+    private static int medianOfThree(int[] array, int p, int r)
+    {
+        int mid = p + (r - p) / 2;
+
+        if (array[p] > array[mid])
+        {
+            swap(array, p, mid);
+        }
+
+        if (array[p] > array[r])
+        {
+            swap(array, p, r);
+        }
+
+        if (array[mid] > array[r])
+        {
+            swap(array, mid, r);
+        }
+        return mid;
+    }
+
+
+    private static int partitionMedianOfThree(int[] array, int p, int r) {
+        int medianIndex = medianOfThree(array, p, r);
+        swap(array, medianIndex, r);
+
+        return partition(array, p, r);
+    }
+
+
+    private static int partitionQuick(int[] array, int p, int r)
+    {
+        return partition(array, p, r);
+    }
+
+
+    private static int partition(int[] array, int p, int r) {
+        int pivot = array[r];
         int i = p - 1;
-        for (int j = p; j < r; j++){
-            if (array[j] <= x){
+
+        for (int j = p; j < r; j++) {
+            if (array[j] <= pivot) {
                 i++;
                 swap(array, i, j);
             }
         }
-        swap(array, i+1, r);
+        swap(array, i + 1, r);
         return i + 1;
     }
 

@@ -98,6 +98,18 @@ public class Timer
     }
 
 
+    public long timeQuickSortMedian3(String input) throws FileNotFoundException
+    {
+        int[] array = reader.readArray("input/" + input + ".txt");
+
+        long startTime = System.nanoTime();
+        sorter.quickSortMedian3(array, 0, array.length-1);
+        long endTime = System.nanoTime();
+
+        return (endTime - startTime);
+    }
+
+
     public long averageInsertionSortTime(String input) throws FileNotFoundException
     {
         long total = 0;
@@ -175,12 +187,26 @@ public class Timer
     }
 
 
+    public long averageQuickSortMedian3Time(String input) throws FileNotFoundException
+    {
+        long total = 0;
+        for (int i = 0; i < 10; i++)
+        {
+            total += timeQuickSortMedian3(input);
+        }
+        return total/10;
+    }
+
+
     public static void main(String[] args) throws FileNotFoundException
     {
         Timer timer = new Timer();
+        Reader reader = new Reader();
 
         String input = "int20k";
+        int[] a = reader.readArray("input/" + input + ".txt");
 
+        System.out.println("Testing on input size " + a.length);
         System.out.println("------------------------");
 
         long averageInsertionTime = timer.averageInsertionSortTime(input);
@@ -203,6 +229,9 @@ public class Timer
 
         long averageQuickTime = timer.averageQuickSortTime(input);
         System.out.println("The average quick sort time is " + averageQuickTime + "ns (" + (double) averageQuickTime/1_000_000_000 + "s)");
+
+        long averageQuickMedian3Time = timer.averageQuickSortMedian3Time(input);
+        System.out.println("The average quick sort median 3 time is " + averageQuickMedian3Time + "ns (" + (double) averageQuickMedian3Time/1_000_000_000 + "s)");
 
         System.out.println("------------------------");
     }

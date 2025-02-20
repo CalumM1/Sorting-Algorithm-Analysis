@@ -14,6 +14,6 @@ public class Main
         Sorter sorter = new Sorter();
 
         System.out.println(Arrays.toString(b));
-        System.out.println(Arrays.toString(sorter.bottomUpMergeSort(a, 0, a.length - 1)));
+        System.out.println(Arrays.toString(sorter.quickSortMedian3(a, 0, a.length - 1)));
     }
 }
