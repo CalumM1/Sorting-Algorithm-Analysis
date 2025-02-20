@@ -22,8 +22,7 @@ public class Timer
         sorter.insertionSort(array);
         long endTime = System.nanoTime();
 
-        // return value in microseconds (μ)
-        return (endTime - startTime)/1000;
+        return (endTime - startTime);
     }
 
 
@@ -35,8 +34,7 @@ public class Timer
         sorter.selectionSort(array);
         long endTime = System.nanoTime();
 
-        // return value in microseconds (μ)
-        return (endTime - startTime)/1000;
+        return (endTime - startTime);
     }
 
 
@@ -48,8 +46,7 @@ public class Timer
         sorter.shellSort(array);
         long endTime = System.nanoTime();
 
-        // return value in microseconds (μ)
-        return (endTime - startTime)/1000;
+        return (endTime - startTime);
     }
 
 
@@ -61,8 +58,7 @@ public class Timer
         sorter.mergeSort(array, 0, array.length-1);
         long endTime = System.nanoTime();
 
-        // return value in microseconds (μ)
-        return (endTime - startTime)/1000;
+        return (endTime - startTime);
     }
 
 
@@ -74,8 +70,7 @@ public class Timer
         sorter.mergeInsertionSort(array, 0, array.length-1);
         long endTime = System.nanoTime();
 
-        // return value in microseconds (μ)
-        return (endTime - startTime)/1000;
+        return (endTime - startTime);
     }
 
 
@@ -87,8 +82,19 @@ public class Timer
         sorter.bottomUpMergeSort(array, 0, array.length-1);
         long endTime = System.nanoTime();
 
-        // return value in microseconds (μ)
-        return (endTime - startTime)/1000;
+        return (endTime - startTime);
+    }
+
+
+    public long timeQuickSort(String input) throws FileNotFoundException
+    {
+        int[] array = reader.readArray("input/" + input + ".txt");
+
+        long startTime = System.nanoTime();
+        sorter.quickSort(array, 0, array.length-1);
+        long endTime = System.nanoTime();
+
+        return (endTime - startTime);
     }
 
 
@@ -158,31 +164,45 @@ public class Timer
     }
 
 
+    public long averageQuickSortTime(String input) throws FileNotFoundException
+    {
+        long total = 0;
+        for (int i = 0; i < 10; i++)
+        {
+            total += timeQuickSort(input);
+        }
+        return total/10;
+    }
+
+
     public static void main(String[] args) throws FileNotFoundException
     {
         Timer timer = new Timer();
 
-        String input = "int500k";
+        String input = "int20k";
 
         System.out.println("------------------------");
 
         long averageInsertionTime = timer.averageInsertionSortTime(input);
-        System.out.println("The average insertion sort time is " + averageInsertionTime + "μs (" + (double) averageInsertionTime/1_000_000 + "s)");
+        System.out.println("The average insertion sort time is " + averageInsertionTime + "ns (" + (double) averageInsertionTime/1_000_000_000 + "s)");
 
         long averageSelectionTime = timer.averageSelectionSortTime(input);
-        System.out.println("The average selection sort time is " + averageSelectionTime + "μs (" + (double) averageSelectionTime/1_000_000 + "s)");
+        System.out.println("The average selection sort time is " + averageSelectionTime + "ns (" + (double) averageSelectionTime/1_000_000_000 + "s)");
 
         long averageShellTime = timer.averageShellSortTime(input);
-        System.out.println("The average shell sort time is " + averageShellTime + "μs (" + (double) averageShellTime/1_000_000 + "s)");
+        System.out.println("The average shell sort time is " + averageShellTime + "ns (" + (double) averageShellTime/1_000_000_000 + "s)");
 
         long averageMergeTime = timer.averageMergeSortTime(input);
-        System.out.println("The average Merge sort time is " + averageMergeTime + "μs (" + (double) averageMergeTime/1_000_000 + "s)");
+        System.out.println("The average Merge sort time is " + averageMergeTime + "ns (" + (double) averageMergeTime/1_000_000_000 + "s)");
 
         long averageMergeInsertionTime = timer.averageMergeInsertionSortTime(input);
-        System.out.println("The average MergeInsertion sort time is " + averageMergeInsertionTime + "μs (" + (double) averageMergeInsertionTime/1_000_000 + "s)");
+        System.out.println("The average MergeInsertion sort time is " + averageMergeInsertionTime + "ns (" + (double) averageMergeInsertionTime/1_000_000_000 + "s)");
 
-        long averageBottomUpMergeTime = timer.averageMergeInsertionSortTime(input);
-        System.out.println("The average Bottom Up Merge sort time is " + averageBottomUpMergeTime + "μs (" + (double) averageBottomUpMergeTime/1_000_000 + "s)");
+        long averageBottomUpMergeTime = timer.averageBottomUpMergeSortTime(input);
+        System.out.println("The average Bottom Up Merge sort time is " + averageBottomUpMergeTime + "ns (" + (double) averageBottomUpMergeTime/1_000_000_000 + "s)");
+
+        long averageQuickTime = timer.averageQuickSortTime(input);
+        System.out.println("The average quick sort time is " + averageQuickTime + "ns (" + (double) averageQuickTime/1_000_000_000 + "s)");
 
         System.out.println("------------------------");
     }

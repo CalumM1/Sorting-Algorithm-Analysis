@@ -73,9 +73,11 @@ public class Sorter
     public int[] mergeInsertionSort(int[] array, int p, int r)
     {
         final int INSERTION_SORT_THRESHOLD = 10;
-        if (p < r) {
+        if (p < r)
+        {
             // Use insertion sort for small subarrays
-            if (r - p + 1 <= INSERTION_SORT_THRESHOLD) {
+            if (r - p + 1 <= INSERTION_SORT_THRESHOLD)
+            {
                 insertionSortInPlace(array, p, r);
             } else {
                 int q = (p + r) / 2;
@@ -92,10 +94,39 @@ public class Sorter
     {
         int n = r - p + 1;
         for (int sz = 1; sz < n; sz = sz+sz)
-            for (int q = 0; q < n-sz; q += sz+sz)
-                merge(array, q, q+sz-1, Math.min(q+sz+sz-1, n-1));
-
+        {
+            for (int q = 0; q < n - sz; q += sz + sz)
+            {
+                merge(array, q, q + sz - 1, Math.min(q + sz + sz - 1, n - 1));
+            }
+        }
         return array;
+    }
+
+
+    public int[] quickSort(int[] array, int low, int high)
+    {
+        if (low < high)
+        {
+            int pivotIndex = partition(array, low, high);
+            quickSort(array, low, pivotIndex - 1);
+            quickSort(array, pivotIndex + 1, high);
+        }
+        return array;
+    }
+
+
+    private static int partition(int[] array, int p, int r){
+        int x = array[r];
+        int i = p - 1;
+        for (int j = p; j < r; j++){
+            if (array[j] <= x){
+                i++;
+                swap(array, i, j);
+            }
+        }
+        swap(array, i+1, r);
+        return i + 1;
     }
 
 
