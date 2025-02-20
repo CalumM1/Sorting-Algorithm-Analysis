@@ -1,7 +1,6 @@
-package main;
+package main.java;
 
 import java.io.FileNotFoundException;
-import java.util.*;
 
 public class Main
 {
@@ -9,6 +8,6 @@ public class Main
     {
         Reader reader = new Reader();
         int[] a = reader.readArray("input/int50.txt");
-        Sort sort = new Sort();
+        Sorter sorter = new Sorter();
     }
 }

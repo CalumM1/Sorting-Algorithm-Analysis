@@ -1,13 +1,11 @@
-package main;
+package main.java;
 
 import java.io.FileNotFoundException;
-import java.lang.reflect.Method;
-import java.util.function.Function;
 
 public class Timer
 {
     private Reader reader = new Reader();
-    private Sort sort = new Sort();
+    private Sorter sorter = new Sorter();
 
 
     public Timer() throws FileNotFoundException
@@ -21,7 +19,7 @@ public class Timer
         int[] array = reader.readArray("input/" + input + ".txt");
 
         long startTime = System.nanoTime();
-        sort.insertionSort(array);
+        sorter.insertionSort(array);
         long endTime = System.nanoTime();
 
         // return value in microseconds (μ)
@@ -34,7 +32,7 @@ public class Timer
         int[] array = reader.readArray("input/" + input + ".txt");
 
         long startTime = System.nanoTime();
-        sort.selectionSort(array);
+        sorter.selectionSort(array);
         long endTime = System.nanoTime();
 
         // return value in microseconds (μ)
@@ -47,7 +45,7 @@ public class Timer
         int[] array = reader.readArray("input/" + input + ".txt");
 
         long startTime = System.nanoTime();
-        sort.shellSort(array);
+        sorter.shellSort(array);
         long endTime = System.nanoTime();
 
         // return value in microseconds (μ)
@@ -60,7 +58,7 @@ public class Timer
         int[] array = reader.readArray("input/" + input + ".txt");
 
         long startTime = System.nanoTime();
-        sort.mergeSort(array, 0, array.length-1);
+        sorter.mergeSort(array, 0, array.length-1);
         long endTime = System.nanoTime();
 
         // return value in microseconds (μ)

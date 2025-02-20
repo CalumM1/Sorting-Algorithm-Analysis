@@ -1,6 +1,6 @@
-package main;
+package main.java;
 
-public class Sort
+public class Sorter
 {
 
     public int[] insertionSort(int[] array)
