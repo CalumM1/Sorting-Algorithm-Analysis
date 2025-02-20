@@ -35,6 +35,12 @@ public class Sort
     }
 
 
+    public int[] shellSort(int[] array)
+    {
+        return array;
+    }
+
+
     private static int findMinIndex(int[] array, int startingIndex) {
         int min = array[startingIndex];
         int index = startingIndex;

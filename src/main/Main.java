@@ -11,7 +11,6 @@ public class Main
         int[] a = reader.readArray("input/int50.txt");
         Sort sort = new Sort();
 
-        System.out.println(Arrays.toString(a));
-        System.out.println(Arrays.toString(sort.selectionSort(a)));
+
     }
 }
