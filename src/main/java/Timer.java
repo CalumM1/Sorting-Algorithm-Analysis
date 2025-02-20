@@ -138,19 +138,25 @@ public class Timer
     {
         Timer timer = new Timer();
 
-        String input = "int500K";
-//        long averageInsertionTime = timer.averageInsertionSortTime(input);
-//        long averageSelectionTime = timer.averageSelectionSortTime(input);
-//        long averageShellTime = timer.averageShellSortTime(input);
-        long averageMergeTime = timer.averageMergeSortTime(input);
-        long averageMergeInsertionTime = timer.averageMergeInsertionSortTime(input);
+        String input = "int500k";
 
         System.out.println("------------------------");
-//        System.out.println("The average insertion sort time is " + averageInsertionTime + "μs (" + (double) averageInsertionTime/1_000_000 + "s)");
-//        System.out.println("The average selection sort time is " + averageSelectionTime + "μs (" + (double) averageSelectionTime/1_000_000 + "s)");
-//        System.out.println("The average shell sort time is " + averageShellTime + "μs (" + (double) averageShellTime/1_000_000 + "s)");
+
+        long averageInsertionTime = timer.averageInsertionSortTime(input);
+        System.out.println("The average insertion sort time is " + averageInsertionTime + "μs (" + (double) averageInsertionTime/1_000_000 + "s)");
+
+        long averageSelectionTime = timer.averageSelectionSortTime(input);
+        System.out.println("The average selection sort time is " + averageSelectionTime + "μs (" + (double) averageSelectionTime/1_000_000 + "s)");
+
+        long averageShellTime = timer.averageShellSortTime(input);
+        System.out.println("The average shell sort time is " + averageShellTime + "μs (" + (double) averageShellTime/1_000_000 + "s)");
+
+        long averageMergeTime = timer.averageMergeSortTime(input);
         System.out.println("The average Merge sort time is " + averageMergeTime + "μs (" + (double) averageMergeTime/1_000_000 + "s)");
+
+        long averageMergeInsertionTime = timer.averageMergeInsertionSortTime(input);
         System.out.println("The average MergeInsertion sort time is " + averageMergeInsertionTime + "μs (" + (double) averageMergeInsertionTime/1_000_000 + "s)");
+
         System.out.println("------------------------");
     }
 }
