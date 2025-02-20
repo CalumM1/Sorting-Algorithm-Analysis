@@ -79,6 +79,19 @@ public class Timer
     }
 
 
+    public long timeBottomUpMergeSort(String input) throws FileNotFoundException
+    {
+        int[] array = reader.readArray("input/" + input + ".txt");
+
+        long startTime = System.nanoTime();
+        sorter.bottomUpMergeSort(array, 0, array.length-1);
+        long endTime = System.nanoTime();
+
+        // return value in microseconds (μ)
+        return (endTime - startTime)/1000;
+    }
+
+
     public long averageInsertionSortTime(String input) throws FileNotFoundException
     {
         long total = 0;
@@ -134,6 +147,17 @@ public class Timer
     }
 
 
+    public long averageBottomUpMergeSortTime(String input) throws FileNotFoundException
+    {
+        long total = 0;
+        for (int i = 0; i < 10; i++)
+        {
+            total += timeBottomUpMergeSort(input);
+        }
+        return total/10;
+    }
+
+
     public static void main(String[] args) throws FileNotFoundException
     {
         Timer timer = new Timer();
@@ -156,6 +180,9 @@ public class Timer
 
         long averageMergeInsertionTime = timer.averageMergeInsertionSortTime(input);
         System.out.println("The average MergeInsertion sort time is " + averageMergeInsertionTime + "μs (" + (double) averageMergeInsertionTime/1_000_000 + "s)");
+
+        long averageBottomUpMergeTime = timer.averageMergeInsertionSortTime(input);
+        System.out.println("The average Bottom Up Merge sort time is " + averageBottomUpMergeTime + "μs (" + (double) averageBottomUpMergeTime/1_000_000 + "s)");
 
         System.out.println("------------------------");
     }

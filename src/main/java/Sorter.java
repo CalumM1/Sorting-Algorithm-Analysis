@@ -88,6 +88,17 @@ public class Sorter
     }
 
 
+    public int[] bottomUpMergeSort(int[] array, int p, int r)
+    {
+        int n = r - p + 1;
+        for (int sz = 1; sz < n; sz = sz+sz)
+            for (int q = 0; q < n-sz; q += sz+sz)
+                merge(array, q, q+sz-1, Math.min(q+sz+sz-1, n-1));
+
+        return array;
+    }
+
+
     private static void merge(int[] array, int p, int q, int r)
     {
         int n1 = q - p + 1;
