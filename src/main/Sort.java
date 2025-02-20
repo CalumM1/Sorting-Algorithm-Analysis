@@ -37,7 +37,72 @@ public class Sort
 
     public int[] shellSort(int[] array)
     {
+        long h = 1;
+
+        while (h < array.length / 3)
+        {
+            h = (h * 3) + 1;
+        }
+        while (h >= 1)
+        {
+            for (long i = h; i < array.length; i++)
+            {
+                for (long j = i; j >= h && array[(int) j] < array[(int)(j-h)]; j-=h)
+                {
+                    swap(array,(int) j, (int) (j-h));
+                }
+            }
+            h /= 3;
+        }
         return array;
+    }
+
+
+    public int[] mergeSort(int[] array, int p, int r)
+    {
+        if (p < r){
+            int q = (p+r)/2;
+            mergeSort(array, p, q);
+            mergeSort(array , q+1, r);
+            merge(array, p, q, r);
+        }
+        return array;
+    }
+
+
+    static void merge(int[] array, int p, int q, int r)
+    {
+        int n1 = q - p + 1;
+        int n2 = r - q;
+        int[] L = new int[n1 + 1];
+        int[] R = new int[n2 + 1];
+
+        if (n1 >= 0)
+        {
+            System.arraycopy(array, p, L, 0, n1);
+        }
+
+        for (int j=0; j<n2; j++)
+        {
+            R[j] = array[q + 1 + j];
+        }
+
+        L[n1] = Integer.MAX_VALUE;
+        R[n2] = Integer.MAX_VALUE;
+
+        int i = 0;
+        int j = 0;
+        for (int k=p; k<= r; k++)
+        {
+            if(L[i] <= R[j]){
+                array[k] = L[i];
+                i++;
+            }
+            else{
+                array[k] = R[j];
+                j++;
+            }
+        }
     }
 
 
@@ -62,6 +127,5 @@ public class Sort
         array[index1] = array[index2];
         array[index2] = temp;
     }
-
 
 }

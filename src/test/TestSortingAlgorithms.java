@@ -15,9 +15,7 @@ public class TestSortingAlgorithms
     private String smallInputString = "input/int100.txt";
     private String bigInputString = "input/int20k.txt";
 
-    private int[] smallInput = reader.readArray(smallInputString);
     private int[] smallSorted = reader.readArray(smallInputString);
-    private int[] bigInput = reader.readArray(bigInputString);
     private int[] bigSorted = reader.readArray(bigInputString);
 
     // constructor creates sorted arrays to test against using java method
@@ -29,38 +27,58 @@ public class TestSortingAlgorithms
 
 
     @Test
-    public void testInsertionSortSmall()
+    public void testInsertionSortSmall() throws FileNotFoundException
     {
+        int[] smallInput = reader.readArray(smallInputString);
         Assert.assertArrayEquals(smallSorted, sort.insertionSort(smallInput));
     }
 
     @Test
-    public void testInsertionSortBig()
+    public void testInsertionSortBig() throws FileNotFoundException
     {
+        int[] bigInput = reader.readArray(bigInputString);
         Assert.assertArrayEquals(bigSorted, sort.insertionSort(bigInput));
     }
 
     @Test
-    public void testSelectionSortSmall()
+    public void testSelectionSortSmall() throws FileNotFoundException
     {
+        int[] smallInput = reader.readArray(smallInputString);
         Assert.assertArrayEquals(smallSorted, sort.selectionSort(smallInput));
     }
 
     @Test
-    public void testSelectionSortBig()
+    public void testSelectionSortBig() throws FileNotFoundException
     {
+        int[] bigInput = reader.readArray(bigInputString);
         Assert.assertArrayEquals(bigSorted, sort.selectionSort(bigInput));
     }
 
     @Test
-    public void testShellSortSmall()
+    public void testShellSortSmall() throws FileNotFoundException
     {
+        int[] smallInput = reader.readArray(smallInputString);
         Assert.assertArrayEquals(smallSorted, sort.shellSort(smallInput));
     }
 
     @Test
-    public void testShellSortBig()
+    public void testShellSortBig() throws FileNotFoundException
     {
+        int[] bigInput = reader.readArray(bigInputString);
         Assert.assertArrayEquals(bigSorted, sort.shellSort(bigInput));
+    }
+
+    @Test
+    public void testMergeSortSmall() throws FileNotFoundException
+    {
+        int[] smallInput = reader.readArray(smallInputString);
+        Assert.assertArrayEquals(smallSorted, sort.mergeSort(smallInput, 0, smallInput.length - 1));
+    }
+
+    @Test
+    public void testMergeSortBig() throws FileNotFoundException
+    {
+        int[] bigInput = reader.readArray(bigInputString);
+        Assert.assertArrayEquals(bigSorted, sort.mergeSort(bigInput, 0 , bigInput.length - 1));
     }
 }
