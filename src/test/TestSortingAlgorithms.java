@@ -10,17 +10,17 @@ import java.util.Arrays;
 
 public class TestSortingAlgorithms
 {
+    private Reader reader = new Reader();
+    private Sort sort = new Sort();
     private String smallInputString = "input/int100.txt";
     private String bigInputString = "input/int20k.txt";
-    private Sort sort = new Sort();
-    private Reader reader = new Reader();
 
     private int[] smallInput = reader.readArray(smallInputString);
     private int[] smallSorted = reader.readArray(smallInputString);
     private int[] bigInput = reader.readArray(bigInputString);
     private int[] bigSorted = reader.readArray(bigInputString);
 
-
+    // constructor creates sorted arrays to test against using java method
     public TestSortingAlgorithms() throws FileNotFoundException
     {
         Arrays.sort(smallSorted);

@@ -1,7 +1,5 @@
 package main;
 
-import java.util.Arrays;
-
 public class Sort
 {
 
@@ -29,21 +27,22 @@ public class Sort
         {
             int sorted = array[i];
 
-            int index = i;
-            index = findMin(array, i, sorted, index);
-            swap(array, i, index);
+            int minIndex = i;
+            minIndex = findMinIndex(array, i);
+            swap(array, i, minIndex);
         }
         return array;
     }
 
 
-    private static int findMin(int[] array, int i, int min, int index) {
-        for (int j = i + 1; j < array.length; j++)
+    private static int findMinIndex(int[] array, int startingIndex) {
+        int min = array[startingIndex];
+        int index = startingIndex;
+        for (int j = startingIndex + 1; j < array.length; j++)
         {
-            int next = array[j];
-            if (next < min)
+            if (array[j] < min)
             {
-                min = next;
+                min = array[j];
                 index = j;
             }
         }
