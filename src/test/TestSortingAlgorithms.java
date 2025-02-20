@@ -10,22 +10,34 @@ import java.util.Arrays;
 
 public class TestSortingAlgorithms
 {
-    Sort sort = new Sort();
-
-    String inputString = "input/int100.txt";
+    private String smallInputString = "input/int100.txt";
+    private String bigInputString = "input/int20k.txt";
+    private Sort sort = new Sort();
     private Reader reader = new Reader();
-    private int[] input = reader.readArray(inputString);
-    private int[] sorted = reader.readArray(inputString);
+
+    private int[] smallInput = reader.readArray(smallInputString);
+    private int[] smallSorted = reader.readArray(smallInputString);
+    private int[] bigInput = reader.readArray(bigInputString);
+    private int[] bigSorted = reader.readArray(bigInputString);
+
 
     public TestSortingAlgorithms() throws FileNotFoundException
     {
-        Arrays.sort(sorted);
+        Arrays.sort(smallSorted);
+        Arrays.sort(bigSorted);
     }
 
 
     @Test
-    public void test()
+    public void testInsertionSortSmall()
     {
-        Assert.assertEquals(Arrays.toString(sorted), Arrays.toString(sort.insertionSort(input)));
+        Assert.assertArrayEquals(smallSorted, sort.insertionSort(smallInput));
+    }
+
+
+    @Test
+    public void testInsertionSortBig()
+    {
+        Assert.assertArrayEquals(bigSorted, sort.insertionSort(bigInput));
     }
 }
