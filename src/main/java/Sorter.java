@@ -25,8 +25,6 @@ public class Sorter
     {
         for (int i = 0; i < array.length; i++)
         {
-            int sorted = array[i];
-
             int minIndex = i;
             minIndex = findMinIndex(array, i);
             swap(array, i, minIndex);
