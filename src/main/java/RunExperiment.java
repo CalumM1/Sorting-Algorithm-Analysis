@@ -18,7 +18,15 @@ public class RunExperiment
                                 "intBig",};
 
         Reader reader = new Reader();
-        long[][] allTimes = new long[10][7];
+        long[][] allTimes = runAndGetTimes(inputs, new long[10][7]);
+
+        writeLongArrayToCSV(allTimes, "test.csv");
+
+
+    }
+
+
+    public static long[][] runAndGetTimes(String[] inputs, long[][] allTimes) throws FileNotFoundException {
 
         System.out.println("Starting experiment ...");
         System.out.println();
@@ -62,10 +70,7 @@ public class RunExperiment
         long[] averageQuickInsertionTimes = testQuickInsertionSort(inputs);
         allTimes[9] = averageQuickInsertionTimes;
         System.out.println("Quick Insertion Sort completed.");
-
-        writeLongArrayToCSV(allTimes, "runtimes3.csv");
-
-
+        return allTimes;
     }
 
 
