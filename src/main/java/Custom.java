@@ -5,8 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Custom
-{
+public class Custom {
     public int[] findKMostViewed(int[] array, int k) {
         ArrayList<Integer> mostViewed = new ArrayList<>();
 
@@ -31,14 +30,5 @@ public class Custom
         }
 
         return result;
-    }
-
-    public static void main(String[] args) throws FileNotFoundException {
-        Reader reader = new Reader();
-        int[] input = reader.readArray("input/int500k.txt");
-
-
-        Custom c = new Custom();
-        System.out.println(Arrays.toString(c.findKMostViewed(input,500)));
     }
 }
