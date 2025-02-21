@@ -122,6 +122,18 @@ public class Timer
     }
 
 
+    public long timeQuickInsertionSort(String input) throws FileNotFoundException
+    {
+        int[] array = reader.readArray("input/" + input + ".txt");
+
+        long startTime = System.nanoTime();
+        sorter.quickInsertionSort(array, 0, array.length-1);
+        long endTime = System.nanoTime();
+
+        return (endTime - startTime);
+    }
+
+
     public long averageInsertionSortTime(String input) throws FileNotFoundException
     {
         long total = 0;
@@ -221,6 +233,17 @@ public class Timer
     }
 
 
+    public long averageQuickInsertionSortTime(String input) throws FileNotFoundException
+    {
+        long total = 0;
+        for (int i = 0; i < 10; i++)
+        {
+            total += timeQuickInsertionSort(input);
+        }
+        return total/10;
+    }
+
+
     public static void main(String[] args) throws FileNotFoundException
     {
         Timer timer = new Timer();
@@ -258,6 +281,9 @@ public class Timer
 
         long averageQuickDutchFlagTime = timer.averageQuickSortDutchFlagTime(input);
         System.out.println("The average quick sort Dutch flag time is " + averageQuickDutchFlagTime + "ns (" + (double) averageQuickDutchFlagTime/1_000_000_000 + "s)");
+
+        long averageQuickInsertionTime = timer.averageQuickInsertionSortTime(input);
+        System.out.println("The average quick insertion sort time is " + averageQuickInsertionTime + "ns (" + (double) averageQuickInsertionTime/1_000_000_000 + "s)");
 
         System.out.println("------------------------");
     }

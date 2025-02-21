@@ -73,11 +73,10 @@ public class Sorter
 
     public int[] mergeInsertionSort(int[] array, int low, int high)
     {
-        final int INSERTION_SORT_THRESHOLD = 10;
         if (low < high)
         {
             // Use insertion sort for small subarrays
-            if (high - low + 1 <= INSERTION_SORT_THRESHOLD)
+            if (high - low + 1 <= 10)
             {
                 insertionSortInPlace(array, low, high);
             } else {
@@ -136,6 +135,23 @@ public class Sorter
             int[] pivots = partitionDutchFlag(array, low, high);
             quickSort(array, low, pivots[0] - 1);
             quickSort(array, pivots[1] + 1, high);
+        }
+        return array;
+    }
+
+
+    public int[] quickInsertionSort(int[] array, int low, int high) {
+        if (low < high)
+        {
+            // Use Insertion Sort for small subarrays
+            if (high - low + 1 <= 10)
+            {
+                insertionSortInPlace(array, low, high);
+            } else {
+                int pivotIndex = partitionQuick(array, low, high);
+                quickSort(array, low, pivotIndex - 1);
+                quickSort(array, pivotIndex + 1, high);
+            }
         }
         return array;
     }
