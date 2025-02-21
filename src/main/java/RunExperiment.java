@@ -20,35 +20,48 @@ public class RunExperiment
         Reader reader = new Reader();
         long[][] allTimes = new long[10][7];
 
+        System.out.println("Starting experiment ...");
+        System.out.println();
+
         long[] averageInsertionSortTimes = testInsertionSort(inputs);
         allTimes[0] = averageInsertionSortTimes;
+        System.out.println("Insertion Sort completed.");
 
         long[] averageSelectionSortTimes = testSelectionSort(inputs);
         allTimes[1] = averageSelectionSortTimes;
+        System.out.println("Selection Sort completed.");
 
         long[] averageShellSortTimes = testShellSort(inputs);
         allTimes[2] = averageShellSortTimes;
+        System.out.println("Shell Sort completed.");
 
         long[] averageMergeSortTimes = testMergeSort(inputs);
         allTimes[3] = averageMergeSortTimes;
+        System.out.println("Merge Sort completed.");
 
         long[] averageMergeInsertionSortTimes = testMergeInsertionSort(inputs);
         allTimes[4] = averageMergeInsertionSortTimes;
+        System.out.println("Merge Insertion Sort completed.");
 
         long[] averageBottomUpMergeSortTimes = testBottomUpMergeSort(inputs);
         allTimes[5] = averageBottomUpMergeSortTimes;
+        System.out.println("Bottom Up Merge Sort completed.");
 
         long[] averageQuickSortTimes = testQuickSort(inputs);
         allTimes[6] = averageQuickSortTimes;
+        System.out.println("Quick Sort completed.");
 
         long[] averageQuickSortMedian3Times = testQuickSortMedian3(inputs);
         allTimes[7] = averageQuickSortMedian3Times;
+        System.out.println("Quick Sort Median 3 completed.");
 
         long[] averageQuickSortDutchFlagTimes = testQuickSortDutchFlag(inputs);
         allTimes[8] = averageQuickSortDutchFlagTimes;
+        System.out.println("Quick Sort Dutch Flag completed.");
 
         long[] averageQuickInsertionTimes = testQuickInsertionSort(inputs);
         allTimes[9] = averageQuickInsertionTimes;
+        System.out.println("Quick Insertion Sort completed.");
 
         writeLongArrayToCSV(allTimes, "runtimes.csv");
 
