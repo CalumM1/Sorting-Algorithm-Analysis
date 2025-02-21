@@ -226,20 +226,20 @@ public class Timer
         Timer timer = new Timer();
         Reader reader = new Reader();
 
-        String input = "int20k";
+        String input = "int500k";
         int[] a = reader.readArray("input/" + input + ".txt");
 
         System.out.println("Testing on input size " + a.length);
         System.out.println("------------------------");
 
-        long averageInsertionTime = timer.averageInsertionSortTime(input);
-        System.out.println("The average insertion sort time is " + averageInsertionTime + "ns (" + (double) averageInsertionTime/1_000_000_000 + "s)");
-
-        long averageSelectionTime = timer.averageSelectionSortTime(input);
-        System.out.println("The average selection sort time is " + averageSelectionTime + "ns (" + (double) averageSelectionTime/1_000_000_000 + "s)");
-
-        long averageShellTime = timer.averageShellSortTime(input);
-        System.out.println("The average shell sort time is " + averageShellTime + "ns (" + (double) averageShellTime/1_000_000_000 + "s)");
+//        long averageInsertionTime = timer.averageInsertionSortTime(input);
+//        System.out.println("The average insertion sort time is " + averageInsertionTime + "ns (" + (double) averageInsertionTime/1_000_000_000 + "s)");
+//
+//        long averageSelectionTime = timer.averageSelectionSortTime(input);
+//        System.out.println("The average selection sort time is " + averageSelectionTime + "ns (" + (double) averageSelectionTime/1_000_000_000 + "s)");
+//
+//        long averageShellTime = timer.averageShellSortTime(input);
+//        System.out.println("The average shell sort time is " + averageShellTime + "ns (" + (double) averageShellTime/1_000_000_000 + "s)");
 
         long averageMergeTime = timer.averageMergeSortTime(input);
         System.out.println("The average Merge sort time is " + averageMergeTime + "ns (" + (double) averageMergeTime/1_000_000_000 + "s)");
