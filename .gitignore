@@ -30,3 +30,5 @@ bin/
 
 rubbish/
 runtimes*.csv
+*.png
+plots/
