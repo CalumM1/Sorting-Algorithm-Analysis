@@ -63,7 +63,7 @@ public class RunExperiment
         allTimes[9] = averageQuickInsertionTimes;
         System.out.println("Quick Insertion Sort completed.");
 
-        writeLongArrayToCSV(allTimes, "runtimes.csv");
+        writeLongArrayToCSV(allTimes, "runtimes3.csv");
 
 
     }

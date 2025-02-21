@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="61de46d1-180f-4fb3-908e-9046899da673" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2tIzcubLwIrLjwSjaa1maHQW2PC" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.Sort.executor": "Run",
+    "Application.Timer.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.TestSortingAlgorithms.executor": "Run",
+    "JUnit.TestSortingAlgorithms.test.executor": "Run",
+    "JUnit.TestSortingAlgorithms.testInsertionSort.executor": "Run",
+    "JUnit.TestSortingAlgorithms.testInsertionSortBig.executor": "Run",
+    "JUnit.TestSortingAlgorithms.testMergeSortBig.executor": "Run",
+    "JUnit.TestSortingAlgorithms.testMergeSortSmall.executor": "Run",
+    "JUnit.TestSortingAlgorithms.testSelectionSortSmall.executor": "Run",
+    "JUnit.TestSortingAlgorithms.testShellSortBig.executor": "Run",
+    "JUnit.TestSortingAlgorithms.testShellSortSmall.executor": "Run",
+    "JUnit.Tests.test.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\2004m\OneDrive\Documents\Computing\Year_2\ADS2\AE1\Assesed_Excercise_1\input" />
+      <recent name="C:\Users\2004m\OneDrive\Documents\Computing\Year_2\ADS2\AE1\Assesed_Excercise_1" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Timer">
+    <configuration name="Timer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Timer" />
+      <module name="Assesed_Excercise_1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestSortingAlgorithms" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assesed_Excercise_1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.TestSortingAlgorithms" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestSortingAlgorithms.testMergeSortBig" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assesed_Excercise_1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.TestSortingAlgorithms" />
+      <option name="METHOD_NAME" value="testMergeSortBig" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestSortingAlgorithms.testMergeSortSmall" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assesed_Excercise_1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.TestSortingAlgorithms" />
+      <option name="METHOD_NAME" value="testMergeSortSmall" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestSortingAlgorithms.testShellSortBig" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assesed_Excercise_1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.TestSortingAlgorithms" />
+      <option name="METHOD_NAME" value="testShellSortBig" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Timer" />
+        <item itemvalue="JUnit.TestSortingAlgorithms" />
+        <item itemvalue="JUnit.TestSortingAlgorithms.testMergeSortSmall" />
+        <item itemvalue="JUnit.TestSortingAlgorithms.testMergeSortBig" />
+        <item itemvalue="JUnit.TestSortingAlgorithms.testShellSortBig" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="61de46d1-180f-4fb3-908e-9046899da673" name="Changes" comment="" />
+      <created>1740054461983</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1740054461983</updated>
+      <workItem from="1740054463137" duration="3544000" />
+      <workItem from="1740058144964" duration="12024000" />
+      <workItem from="1740103779482" duration="25000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
